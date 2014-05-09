@@ -1,0 +1,14 @@
+- Event.upcoming.each do |event|
+  - cache [event] do
+    div.gap-top.event.border-bottom
+      div
+        i.icon-calendar-empty>
+        == l event.date, format: :long
+      h3.responsive data-compression="13" data-scrollable="true"
+        = event.title
+      p data-truncate="5"
+        = event.body
+      div.align-right
+        a href="#{ event_path(event) }"
+          span> Weiterlesen
+          i.icon-expand.yellow
