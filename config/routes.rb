@@ -1,5 +1,5 @@
 Spree::Core::Engine.routes.draw do
-  #resources :events
+  resources :events
   namespace :admin do
     resources :events
   end

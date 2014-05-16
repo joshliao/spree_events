@@ -1,5 +1,5 @@
 h4 Aktuelle Veranstaltungen
-- Event.upcoming.each do |event|
+- Spree::Event.upcoming.each do |event|
   - cache [event] do
     div.event.small.gap-top.double-gap-bottom
       a href="#{ event_path(event) }"
