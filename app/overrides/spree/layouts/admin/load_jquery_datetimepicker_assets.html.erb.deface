@@ -1,0 +1,6 @@
+<!-- insert_bottom "[data-hook='admin_footer_scripts']" -->
+<link rel="stylesheet" type="text/css" href="<%= stylesheet_path 'jquery.datetimepicker.css' %>"/ >
+<script src="<%= javascript_path 'jquery.datetimepicker.js' %>"></script>
+<script type="text/javascript">
+  $('.datetimepicker').datetimepicker();
+</script>

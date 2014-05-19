@@ -4,62 +4,39 @@
 - if can?(:create, Spree::Event)
   - content_for :page_actions do
     li id="new_event_link"
-      = button_link_to Spree.t(:new_event), new_object_url, { :remote => true, :icon => 'plus', :id => 'admin_new_event' }
+      = button_link_to Spree.t(:new_event), spree.new_admin_event_path, :icon => 'plus'
 
-= render :partial => 'spree/admin/shared/event_sub_menu'
+= paginate @collection
 
-/ - content_for :table_filter_title do
-/   = Spree.t(:search)
-
-/ - content_for :table_filter do
-/   div data-hook="admin_events_sidebar"
-
-    / = search_form_for [:admin, @search] do |f|
-
-    /   - locals = {:f => f}
-
-    /   div data-hook="admin_events_index_search"
-    /     div class="alpha nine columns"
-    /       div class="field"
-    /         = f.label :name_cont, Spree.t(:name) 
-    /         = f.text_field :name_cont, :size => 15 
-    /     div class="four columns"
-    /       div class="field"
-    /         = f.label :variants_including_master_sku_cont, Spree.t(:sku)
-    /         = f.text_field :variants_including_master_sku_cont, :size => 15
-
-    /     div class="clear"
-
-    /     div class="form-buttons actions filter-actions" data-hook="admin_events_index_search_buttons"
-    /       = button Spree.t(:search), 'search'
-/ div id="new_event_wrapper" data-hook
-
-/ = paginate @collection
-
-- if @collection[:passed].any? or @collection[:upcoming].any?  
+- if @collection.any?
   table class="index" id="listing_events"
     colgroup
-      col style="width: 20%;"
-      col style="width: 35%;"
-      col style="width: 35%;"
-      col style="width: 10%;"
+      col
+      col
+      col
+      col
+      col
     thead
-      /tr data-hook="admin_events_index_headers"
-        /th= Spree.t(:title)
-        /th= sort_link @search,:body, Spree.t(:body), { :default_order => "desc" }, {:title => 'admin_events_listing_body_title'}
+      tr data-hook="admin_events_index_headers"
+        th= t(Spree::Event.human_attribute_name :title)
+        th= t(Spree::Event.human_attribute_name :datetime)
+        th= t(Spree::Event.human_attribute_name :location)
+        th= t(Spree::Event.human_attribute_name :admission)
     tbody
-      - @collection[:upcoming].each do |event|
+      / TODO render past events in gray!
+      - @collection.each do |event|      
         tr  id="#{ spree_dom_id event }" data-hook="admin_events_index_rows" class="#{ cycle('odd', 'even') }"
-          td.align-left
-            = l(event.date, format: :short) rescue ''
           td.align-left
             = event.title rescue ''
           td.align-left
-            = event.body rescue ''
+            = l(event.datetime, format: :short) rescue ''
+          td.align-left
+            = event.location rescue ''
+          td.align-left
+            = event.admission rescue ''
           td.actions data-hook="admin_events_index_row_actions"
             = link_to_edit event, :no_text => true, :class => 'edit' if can?(:edit, event)
-            / TODO implement clone!
-            /= link_to_clone event, :no_text => true, :class => 'clone' if can?(:clone, event)
+            = link_to_clone event, :no_text => true, :class => 'clone' if can?(:clone, event)
             = link_to_delete event, :no_text => true if can?(:delete, event)
 - else
   div.alpha.twelve.columns.no-objects-found
@@ -68,4 +45,4 @@
     =< link_to Spree.t(:add_one), spree.new_admin_event_path
     | !
 
-/ = paginate @collection
+= paginate @collection

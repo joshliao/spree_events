@@ -2,6 +2,17 @@ de:
   activerecord:
     models:
       spree/event:
-        one: Veranstaltung
-        other: Veranstaltungen
-        
+        one: Termin
+        other: Termine
+    attributes:
+      spree/event:
+        title: Titel
+        body: Text
+        datetime: Wann?
+        location: Wo?
+        admission: Eintrittspreis
+  spree:
+    listing_events: Termine
+    new_event: Neuer Termin
+    edit_event: Termin bearbeiten
+    
