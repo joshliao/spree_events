@@ -22,10 +22,22 @@ div data-hook="admin_event_form_fields"
 
   = f.field_container :datetime do
     = f.label :datetime, Spree::Event.human_attribute_name(:datetime)
-    = f.error_message_on :datetime
+    br
     = f.text_field :datetime, :class => 'datetimepicker fullwidth'
+    = f.error_message_on :datetime
 
   = f.field_container :admission do
     = f.label :admission, Spree::Event.human_attribute_name(:admission)
-    = f.text_field :admission, :value => number_to_currency(@event.admission, :unit => ''), :class => 'fullwidth' 
+    br
+    = f.text_field :admission, :value => number_to_currency(@event.admission, :unit => ''), :class => 'fullwidth'
     = f.error_message_on :admission
+
+  = f.field_container :tag_list do
+    = f.label :tag_list, Spree::Event.human_attribute_name(:tag_list)
+    = f.text_field :tag_list, :class => 'select2-tag-list'
+    span.small
+      = Spree::t(:hint_event_tag_list)
+    = f.error_message_on :tag_list
+
+javascript:
+  $('.select2-tag-list').select2({ tags: [] });

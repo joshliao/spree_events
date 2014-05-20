@@ -1,0 +1,21 @@
+h1
+  i.icon-calendar
+  =< Spree::t(:listing_events)
+
+ul.unstyled
+  - @events.each do |event|
+    li.triple-gap-bottom.triple-gap-top
+      a href=event_path(event)
+        i.icon-calendar>
+        b= event.title
+        br
+        | Am
+        =<> l(event.datetime, :format => :date_only)
+        | um
+        =< l(event.datetime, :format => :time_only)
+        | ,
+        =< event.location
+        - unless event.admission.blank?  
+          | ,
+          =<> t(Spree::Event.human_attribute_name :admission)
+          =<> number_to_currency(event.admission)

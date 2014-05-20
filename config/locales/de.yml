@@ -8,11 +8,15 @@ de:
       spree/event:
         title: Titel
         body: Text
-        datetime: Wann?
-        location: Wo?
-        admission: Eintrittspreis
+        datetime: Datum und Uhrzeit
+        date: Datum
+        time: Uhrzeit
+        location: Ort
+        admission: Eintritt
+        tag_list: Art der Veranstaltung
   spree:
     listing_events: Termine
     new_event: Neuer Termin
     edit_event: Termin bearbeiten
+    hint_event_tag_list: "'markt' für Märkte, 'seminar' für Seminare, 'vortrag' für Vorträge"
     
