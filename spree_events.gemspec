@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 3.0.4'
-  s.add_dependency 'sass-rails', '~> 5.1.0'
+  s.add_dependency 'sass-rails', '~> 5.0.4'
   s.add_dependency 'acts-as-taggable-on'
   
   s.add_development_dependency 'capybara', '~> 2.1'
