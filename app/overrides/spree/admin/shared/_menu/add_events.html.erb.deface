@@ -1,6 +1,0 @@
-<!-- insert_bottom "[data-hook='admin_tabs']" -->
-<li class="tab-with-icon">
-  <a class="fa fa-calendar icon_link with-tip" href="/admin/events">
-    <span class="text"><%= Spree::t Spree::Event.model_name.human(:count => 2) %></span>
-  </a>
-</li>
