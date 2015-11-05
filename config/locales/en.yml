@@ -4,3 +4,7 @@ en:
       spree/event:
         one: Event
         other: Events
+  time:
+    formats:
+      date_only: %b %e, %Y
+      time_only: %l:%M %p
