@@ -1,4 +1,4 @@
-class Spree::EventsController < Spree::BaseController
+class Spree::EventsController < Spree::HomeController
   before_action :set_event, only: [:show]
 
   # GET /events
