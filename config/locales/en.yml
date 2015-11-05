@@ -4,6 +4,11 @@ en:
       spree/event:
         one: Event
         other: Events
+  spree:
+    listing_events: Events
+    new_event: New Event
+    edit_event: Edit Event
+    hint_event_tag_list: Add tags here
   time:
     formats:
       date_only: "%b %e, %Y"
