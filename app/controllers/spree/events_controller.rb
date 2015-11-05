@@ -14,16 +14,16 @@ class Spree::EventsController < Spree::BaseController
     @events = ::Spree::Event.tagged_with(params[:tag])
     render :index
   end
-  
+
   private
-  
+
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Spree::Event.find(params[:id])
   end
-  
+
   # Only allow a trusted parameter "white list" through.
   def event_params
-    params.require(:event).permit(:title, :body, :published, :datetime, :location)
+    params.require(:event).permit(:title, :body, :published, :starts_on, :location)
   end
 end

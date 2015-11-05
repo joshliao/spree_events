@@ -19,17 +19,17 @@
     thead
       tr data-hook="admin_events_index_headers"
         th= t(Spree::Event.human_attribute_name :title)
-        th= t(Spree::Event.human_attribute_name :datetime)
+        th= t(Spree::Event.human_attribute_name :starts_on)
         th= t(Spree::Event.human_attribute_name :location)
         th= t(Spree::Event.human_attribute_name :admission)
     tbody
       / TODO render past events in gray!
-      - @collection.each do |event|      
+      - @collection.each do |event|
         tr  id="#{ spree_dom_id event }" data-hook="admin_events_index_rows" class="#{ cycle('odd', 'even') }"
           td.align-left
             = event.title rescue ''
           td.align-left
-            = l(event.datetime, format: :short) rescue ''
+            = l(event.starts_on, format: :short) rescue ''
           td.align-left
             = event.location rescue ''
           td.align-left

@@ -4,12 +4,12 @@ h1
 
 p.padded.color_2
   | Am
-  =<> l(@event.datetime, :format => :date_only)
+  =<> l(@event.starts_on, :format => :date_only)
   | um
-  =< l(@event.datetime, :format => :time_only)
+  =< l(@event.starts_on, :format => :time_only)
   | ,
   =< @event.location
-  - unless @event.admission.blank?  
+  - unless @event.admission.blank?
     | ,
     =<> t(Spree::Event.human_attribute_name :admission)
     =<> number_to_currency(@event.admission)

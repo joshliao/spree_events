@@ -6,9 +6,9 @@ h4 Aktuelle Veranstaltungen
         div
           div.half-gap-bottom
             i.icon-calendar>
-            b= l event.datetime, format: :date_only
+            b= l event.starts_on, format: :date_only
             div.pull-right
-              b= l event.datetime, format: :time_only
+              b= l event.starts_on, format: :time_only
               i.icon-time<
         b data-truncate="1"
           = event.title
