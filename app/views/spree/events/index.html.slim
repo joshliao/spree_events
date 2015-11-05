@@ -9,9 +9,9 @@ ul.unstyled
         i.icon-calendar>
         b= event.title
         br
-        | Am
+        | On
         =<> l(event.starts_on, :format => :date_only)
-        | um
+        | at
         =< l(event.starts_on, :format => :time_only)
         | ,
         =< event.location
