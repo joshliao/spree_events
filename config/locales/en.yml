@@ -6,5 +6,5 @@ en:
         other: Events
   time:
     formats:
-      date_only: %b %e, %Y
-      time_only: %l:%M %p
+      date_only: "%b %e, %Y"
+      time_only: "%l:%M %p"
